@@ -23,6 +23,7 @@ while keyboard.is_pressed('q') == False:
 
     width, height = pic.size
 
+    # the for loops are to check every 5 pixels
     for x in range(0,width,5): #(start,finish,increment)
         for y in range(0,height,5):
             r,g,b = pic.getpixel((x,y)) # this saves the rgb values of pixel located in x,y
@@ -30,5 +31,5 @@ while keyboard.is_pressed('q') == False:
             if b == 195: # only doing an exact number because we know color of center in this case will not change
                 # for cases w/o same color throughout we can use range (ex: if(b in range(180,210)):)
                 click(x+660, y+350) # our region starts at (660,350) hence why we adding those
-                time.sleep(0.05) # small delay to make things smoother
+                time.sleep(0.1) # small delay to prevent multiple clickings
                 break
